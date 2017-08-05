@@ -1,0 +1,14 @@
+<div class="padded">
+  <div class="grid grid--guttered">
+    <div class="col col--6of12">
+      {% form 'activate_customer_password' %}
+      <label for="password">Activer votre compte en lui donnant un mot de passe</label>
+      <input type="password" id="password" name="customer[password]" placeholder="Votre mot de passe">
+      <input type="password" name="customer[password_confirmation]" placeholder="Confirmer ce mot de passe">
+
+      <button type="submit" class="button">Submit</button>
+      {% endform %}
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,89 @@
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign variants_size = product.variants | size %}
+
+
+<article class="product padded padded--thick big_bottom" itemscope itemtype="http://schema.org/Product" data-section-id='{{section.id}}' data-section-type='product' data-product-id="{{product.id}}">
+	<meta itemprop="name" content="{{product.title}}{% if variants_size > 1 %} – {{current_variant.option1}}{% endif %}">
+	<meta itemprop="url" content="{{shop.url}}{{product.url}}">
+	<meta itemprop="image" content="{{product.featured_image.src | img_url: 'original'}}">
+
+	<div class="grid grid--guttered">
+		<div class="col col--6of12 col--tablet_landscape--9of12 col--phone--12of12 relative">
+			<div data-thumbnails data-featured="{{product.featured_image}}">
+				<div class="grid grid--guttered">
+					<div class="col col--2of12 col--tablet_portrait--12of12 product__thumbnails">
+						{% for image in product.images %}
+							{% assign alt_split = image.alt | split: '|' %}
+							{% if alt_split.size == 1 or alt_split[0] == current_variant.option1 %}
+							<a href="{{ image.src | img_url: 'master' }}" target="_blank" class="product__thumbnail {% if image != product.featured_image %}product__thumbnail--fade{% endif %}"
+								data-thumbnail='{
+										"thumbnail": "{{image.src | img_url: "medium"}}",
+										"master": "{{image.src | img_url: "master"}}",
+										"src": "{{image.src}}",
+										"alt": "{{image.alt}}"
+									}'>
+								<img src="{{ image.src | img_url: 'medium' }}" alt="{{ image.alt | escape }}" class="normal_bottom">
+							</a>
+							{% endif %}
+						{% endfor %}
+					</div>
+
+					<div class="col col--10of12 col--tablet_portrait--12of12 col--tablet_portrait--first">
+						{% include 'picture', image: product.featured_image %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col col--1of12"></div>
+		
+		<div class="col col--4of12 col--tablet_landscape--8of12 col--tablet_portrait--10of12 col--phone--12of12">
+			<p>
+				{% if collection %}
+				<a href="{{collection.url}}" class="alternate grey">< Back to {{collection.title}}</a>
+				{% else %}
+				<a href="/" class="alternate grey">< Back to {{shop.name}}</a>
+				{% endif %}
+			</p>
+
+			<h2>{{product.title}} <span>· {{product.type}}</span></h2>
+			<h3>{% include 'product_price' %}</h3>
+			
+
+			<div class="normal_bottom" itemprop="description">{{product.description}}</div>
+
+			<div id="add_to_cart" data-current-variant='{{current_variant|json}}' data-variants='{{product.variants|json}}' data-options='{{product.options_with_values|json}}'>
+				<form action="/cart/add" method="post">
+					{% if variants_size > 1 %}
+					<label for="variant">Variant</label>
+					<select id="variant" name="id">
+						{% for variant in product.variants %}
+						<option {% if variant == current_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %} value="{{variant.id}}">{{variant.title}}{% if variant.price != product.price %} – {{variant.price | money}}{% endif %}{% unless variant.available %} (Out of Stock){% endunless %}</option>
+						{% endfor %}
+					</select>
+					{% else %}
+					<input type="hidden" name="id" value="{{current_variant.id}}">
+					{% endif %}
+
+					<button class="button--full" type="submit"{% if product.available == false %} disabled{% endif %}>Add to bag{% if product.available == false %} (Out of Stock){% endif %}</button>
+				</form>
+			</div>
+
+			<hr>
+
+			<h4 class="small_bottom">Sizing</h4>
+			<p class="flat_bottom">Runs true to size. See <a href="#" class="a--underline">sizing chart</a>.</p>
+
+			<hr>
+
+			<h4 class="small_bottom">Shipping &amp; Returns</h4>
+			<p>If you are not happy with your purchase you can return it to us within 14 days for an exchange or refund. <a href="#" class="a--underline">More info.</a></p>
+		</div>
+	</div>
+
+</article>
+
+
+
+

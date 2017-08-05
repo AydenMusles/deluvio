@@ -1,0 +1,49 @@
+
+
+<section id="newsletter" data-turbolinks-permanent data-section-id="{{ section.id }}" data-section-type="newsletter-section" data-newsletter-title="{{section.settings.title}}" data-newsletter-body="{{section.settings.body}}" data-newsletter-cta="{{section.settings.button_text}}" data-newsletter-success="{{section.settings.success_text}}" data-newsletter-shop="{{shop.domain}}" data-newsletter-delay={% if section.settings.disabled %}"never"{% else %}{{section.settings.delay}}{% endif %}></section>
+
+
+
+{% schema %}
+{
+  "name": "Newsletter Popup",
+  "settings": [
+    {
+      "id": "disabled",
+      "type": "checkbox",
+      "label": "Is disabled?",
+      "default": false
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Get 10% off in your inbox."
+    },
+    {
+      "id": "body",
+      "type": "text",
+      "label": "Text",
+      "default": "Sign up now to receive your discount code and updates on our latest products and promotions."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Sign up CTA",
+      "default": "Sign Up"
+    },
+    {
+      "type": "text",
+      "id": "success_text",
+      "label": "Success Text",
+      "default": "Thanks for signing up, we'll keep in touch."
+    },
+    {
+      "type": "text",
+      "id": "delay",
+      "label": "Delay (in seconds)",
+      "default": "1"
+    }
+  ]
+}
+{% endschema %}

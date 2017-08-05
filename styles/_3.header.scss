@@ -1,0 +1,22 @@
+
+
+// #HEADER
+
+.header {
+	padding-top: (61/$base) * 1rem;
+	
+	// &.header--with_alert {
+	// 	padding-top: (92/$base) * 1rem;
+	// }
+}
+
+	.header__alert {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 12;
+
+		width: 100%;
+	}
+
+	

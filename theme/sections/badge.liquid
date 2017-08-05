@@ -1,0 +1,33 @@
+
+{% if section.settings.visible %}
+<section class="badge" id="badge">
+  <img src="{{section.settings.image|img_url: 'master'}}" class="badge__image">
+  <p class="badge__text">{{section.settings.body}}</p>
+</section>
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Badge",
+  "settings": [
+    {
+      "id": "visible",
+      "type": "checkbox",
+      "label": "Is visible?",
+      "default": false
+    },
+    {
+      "id": "body",
+      "type": "text",
+      "label": "Text",
+      "default": "You touch, you buy."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

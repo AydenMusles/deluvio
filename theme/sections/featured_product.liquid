@@ -1,0 +1,109 @@
+
+
+{% assign product = all_products[section.settings.product] %}
+
+<section class="product padded padded--flat_top" data-section-id="{{section.id}}">
+
+  {% assign class = 'hero--'|append: section.id %}
+  {% include 'background', class: class, image: section.settings.image, mobile_image: section.settings.mobile_image %}
+
+  <a href="{{product.url}}" class="hero hero--{{section.id}} hero--{{section.settings.hero_size}} {{section.settings.back}}_back"{% if section.settings.show_quickview%} data-show-quickview data-product='{{product|json|escape}}' data-product-options='{{product.options_with_values|json}}'>
+    
+    {% include 'product_tags' %}
+
+    <div class="hero__inner">
+      <div class="grid grid--guttered grid--spaced">
+        <div class="col col--phone--12of12">
+          <h3 class="small_bottom">{{product.title}}</h3>
+          <p>By {{product.vendor}}</p>
+        </div>
+
+        <div class="col col--phone--12of12">
+          <h4>{% include 'product_price' %}</h4>
+        </div>
+      </div>
+    </div>
+  </a>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Featured Product",
+  "class": "index-section",
+  "settings": [
+    {
+      "id": "product",
+      "type": "product",
+      "label": "Product"
+    },
+    {
+      "id": "show_quickview",
+      "type": "checkbox",
+      "label": "Show Quickview?",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Photo"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Background Photo (Mobile)"
+    },
+    {
+      "type": "select",
+      "id": "back",
+      "label": "Photo Colors",
+      "default": "light",
+      "options": [
+        {
+          "label": "Light",
+          "value": "light"
+        },
+        {
+          "label": "Dark",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hero_size",
+      "label": "Section height",
+      "default": "medium",
+      "options": [
+        {
+          "label": "Extra Small",
+          "value": "x-small"
+        },
+        {
+          "label": "Small",
+          "value": "small"
+        },
+        {
+          "label": "Medium",
+          "value": "medium"
+        },
+        {
+          "label": "Large",
+          "value": "large"
+        },
+        {
+          "label": "Extra Large",
+          "value": "x-large"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}

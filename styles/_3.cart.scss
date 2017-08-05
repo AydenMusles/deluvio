@@ -1,0 +1,42 @@
+
+
+// #CART
+
+.cart {
+	@extend .overlay;
+	@extend .overlay--top_right;
+
+	box-shadow: 0 2px 10px fade-out($grey--light, 0.5);
+}
+
+	.cart__container {
+		@extend .overlay__container;
+	}
+
+
+		.cart__item {
+			padding: $vertical_rythm 0;
+			border-bottom: 1px solid $grey--light;
+
+
+			&:last-child {
+				padding-bottom: 0;
+				border-bottom: none;
+			}
+		}
+
+
+	// .cart__back {
+	// 	@extend .overlay__back;
+	// }
+
+	// .cart__close {
+	// 	@extend .overlay__close;
+	// }
+
+	// .cart__alert {
+	// 	@extend .overlay__alert;
+	// }
+
+
+

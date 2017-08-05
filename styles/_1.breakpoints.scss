@@ -1,0 +1,26 @@
+@each $breakpoint in $breakpoints {
+	.#{nth($breakpoint, 1)}_only {
+		display: none;
+
+		&.col,
+		&.nav__extra_menu__link {
+			display: none;
+		}
+	}
+
+	@media #{nth($breakpoint, 2)} {
+		.#{nth($breakpoint, 1)}_only {
+			display: inline-block;
+
+			&.nav__link,
+			&.col,
+			&.nav__extra_menu__link {
+				display: inline-block;
+			}
+		}
+
+		.hide_on_#{nth($breakpoint, 1)} {
+			display: none !important;
+		}
+	}
+}

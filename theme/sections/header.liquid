@@ -1,0 +1,88 @@
+
+
+<header class="header {% if section.settings.message %}header--with_alert{% endif %}" data-section-id="{{ section.id }}" data-section-type="header-section" id="header" data-header>
+  {% if section.settings.message %}
+  <div class="alert header__alert hide_on_phone">
+    {% if section.settings.message_link != blank %}
+      <a href="{{section.settings.message_link}}" class="alert__message">
+        {{section.settings.message_text}}
+      </a>
+    {% else %}
+      <span class="alert__message">{{section.settings.message_text}}</span>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <nav class="nav grid grid--middle grid--spaced" data-navigation>
+    <div class="col col--6of12 col--tablet_landscape--4of12">
+      <a href="/">
+        {% assign name_split = shop.name|split:" " %}
+        {% assign name_split_length = name_split|size|minus:1 %}
+        <h2 class="hide_on_tablet_landscape">{{shop.name}}</h2>
+        <h2 class="tablet_landscape_only">{{name_split[name_split_length]}}</h2>
+      </a>
+    </div>
+
+
+    <div class="col col--5of12 hide_on_tablet_portrait grid grid--middle">
+      {% for link in linklists['main-menu'].links %}
+      <a href="{{ link.url }}" class="nav__link{% if link.active %} nav__link--active{% endif %}{% if forloop.index > 2 %} hide_on_tablet_portrait{% endif %}">{{link.title}}</a>
+      {% endfor %}
+
+      {% comment %}<span id="extra_menu" data-turbolinks-permanent data-links='{ "links": [
+        {% for link in linklists["main-menu"].links %}
+        {
+          "url": "{{link.url}}",
+          "title": "{{link.title}}",
+          "phone_only": true
+        },
+        {% endfor %}
+        {% for link in linklists["extra-menu"].links %}
+        {
+          "url": "{{link.url}}",
+          "title": "{{link.title}}"
+        },
+        {% endfor %}
+        {
+          "url": "https://unsplash.com",
+          "title": "to unsplash.com"
+        }
+        ]
+      }'>
+        <button class="nav__extra_menu_button"><svg class="icon"><use xlink:href="#icon-ellipsis" /></svg></button>
+      </span>{% endcomment %}
+    </div>
+
+    <div class="col col--1of12 col--tablet_portrait--3of12 col--phone--4of12 text_right">
+      {% include 'cart' %}
+    </div>
+  </nav>
+</header>
+
+
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "message",
+      "label": "Show announcement",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": "Announcement text",
+      "default": "Announce something here"
+    },
+    {
+      "type": "url",
+      "id": "message_link",
+      "label": "Announcement link",
+      "info": "Optional"
+    }
+  ]
+}
+{% endschema %}

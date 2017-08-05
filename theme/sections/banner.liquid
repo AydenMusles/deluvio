@@ -1,0 +1,96 @@
+
+
+<section class="padded text_center padded--thick {{section.settings.back}}_back" data-section-id="{{ section.id }}" data-section-type="links">
+
+	<div class="grid grid--guttered grid--middle grid--center">
+		<div class="col col--6of12 col--tablet_portrait--7of12 col--phone--12of12">
+			<h2>{{section.settings.title}}</h2>
+			<h3 class="grey medium_bottom font-weight--normal">{{section.settings.secondary_title}}</h3>
+
+			{% if section.settings.button_link %}<a href="{{section.settings.button_link}}" class="button{% if section.settings.back == 'dark' %} button--white{% endif %}">{{section.settings.button_text}}</a>{% endif %}
+		</div>
+
+		{% for block in section.blocks %}
+		<div class="col col--3of12 col--tablet_landscape--4of12 col--tablet_portrait--6of12">
+			{% if block.settings.link %}<a href="{{block.settings.link}}">{% endif %}{% include 'picture', image: block.settings.image %}{% if block.settings.link %}</a>{% endif %}
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Banner",
+  "class": "index-section",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Meet the artists."
+    },
+    {
+      "id": "secondary_title",
+      "type": "text",
+      "label": "Secondary title",
+      "default": "#MadeWithUnsplash"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link URL"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "select",
+      "id": "back",
+      "label": "Background Color",
+      "default": "white",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+	{
+		"type": "link",
+		"name": "Link",
+		"settings": [
+			{
+				"id": "image",
+				"type": "image_picker",
+				"label": "Photo"
+			},
+			{
+				"id": "link",
+				"type": "url",
+				"label": "Link URL"
+			}
+		]
+	}
+  ],
+  "presets": [
+    {
+      "name": "Banner",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

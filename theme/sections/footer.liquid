@@ -1,0 +1,92 @@
+
+<footer class="footer padded padded--thick" data-section-id="{{ section.id }}" data-section-type="footer-section">
+	<div class="big_bottom">
+		<div class="grid grid--guttered">
+			<div class="col col--4of12 col--tablet_landscape--9of12 col--tablet_portrait--12of12">
+				<h5>About</h5>
+				<div class="slight">
+				{{section.settings.about}}
+				</div>
+			</div>
+			<div class="col col--2of12 col--tablet_landscape--4of12 col--tablet_portrait--6of12 col--phone--12of12">
+				<h5>Address</h5>
+				<div class="slight">
+					<a href="{{section.settings.address_link}}" target="_blank">{{section.settings.address}}</a>
+				</div>
+			</div>
+			<div class="col col--2of12 col--tablet_landscape--4of12 col--tablet_portrait--6of12 col--phone--12of12">
+				<h5>Contact</h5>
+				<div class="slight">
+					{% for link in linklists[section.settings.contact_links].links %}
+					<a href="{{ link.url }}" target="_blank">{{ link.title }}</a>{% unless forloop.last %}<br>{% endunless %}
+					{% endfor %}
+				</div>
+			</div>
+			<div class="col col--2of12 col--tablet_landscape--4of12 col--tablet_portrait--6of12 col--phone--12of12">
+				<h5>Follow</h5>
+				<div class="slight">
+					{% for link in linklists[section.settings.follow_links].links %}
+					<a href="{{ link.url }}" target="_blank">{{ link.title }}</a>{% unless forloop.last %}<br>{% endunless %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid grid--spaced grid--middle">
+		<div class="grid grid--guttered grid--middle">
+			{% for link in linklists["footer"].links %}
+			<div class="col col--tablet_portrait--4of12">
+				<a href="{{ link.url }}" target="_blank"><h5>{{ link.title }}</h5></a>
+			</div>
+			{% endfor %}
+		</div>
+		<small class="col col--tablet_portrait--12of12 grey">
+			{{section.settings.copyright}}
+		</small>
+	</div>
+</footer>
+
+
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+  	{
+      "type": "richtext",
+      "id": "about",
+      "label": "About text",
+      "default": "<p>Bonjour, welcome to the shop. I’ve been working on these ideas for the past years: some bad, some good. Feel free to browse. You touch, you buy.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "address",
+      "label": "Address text",
+      "default": "<p>HÀO<br>251 Rachel Est<br>Montreal, QC CANADA<br>H2W 1E5</p>"
+    },
+    {
+      "type": "url",
+      "id": "address_link",
+      "label": "Address link"
+    },
+    {
+      "type": "link_list",
+      "id": "contact_links",
+      "label": "Contact links",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "follow_links",
+      "label": "Follow links",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright",
+      "default": "Deluvio, Inc."
+    }
+  ]
+}
+{% endschema %}

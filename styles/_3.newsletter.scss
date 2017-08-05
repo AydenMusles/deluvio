@@ -1,0 +1,38 @@
+
+
+// #LOGIN
+
+.newsletter {
+	@extend .overlay;
+	@extend .overlay--full;
+	@extend .dark_back;
+
+	background: transparent;
+}
+
+	.newsletter__back {
+		@extend .overlay__back;
+	}
+
+	button.newsletter__close {
+		@extend .overlay__close;
+
+		color: $white;
+
+		&:hover,
+		&:focus {
+			color: $grey--light;
+		}
+	}
+
+	.newsletter__container {
+		@extend .overlay__container;
+
+		background: transparent;
+		border: 2px solid;
+		max-width: (666/$base) * 1rem;
+	}
+
+		.newsletter__close {
+			@extend .overlay__close;
+		}

@@ -1,0 +1,21 @@
+
+
+<section class="search_overlay dark_back" id="search" data-turbolinks-permanent>
+	
+	<a href="#" class="search__back" data-hide></a>
+
+	<a href="#" class="a--highlight search__close" data-hide><svg class="icon"><use xlink:href="#icon-close"></use></svg></a>
+
+	<form class="search__container padded" action="/search" method="get" role="search">
+		<h1 class="text_center big_bottom">What are you looking for ?</h1>
+
+		<div class="grid grid--tight_guttered grid--middle">
+			<div class="col col--8of12">
+				<input class="search__input input--big" type="search" name="q" placeholder="Type in the product name, category, style, color…" {% if search.performed %}value="{{ search.terms }}"{% endif %}>
+			</div>
+			<div class="col col--4of12">
+				<button class="search__button button--big" type="submit">Search</button>
+			</div>
+		</div>
+	</form>
+</section>

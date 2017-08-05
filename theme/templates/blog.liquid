@@ -1,0 +1,37 @@
+
+<section class="">
+	<div class="slider padded padded--underheader" data-slider>
+		{% assign size = blog.articles|size %}
+		
+		<style>
+			.slider__container {
+				width: {{size | times: 100 | divided_by: 2}}%;
+			}
+
+			@media (max-device-width: 600px), (max-width: 600px) {
+				.slider__container {
+					width: {{size | times: 100 }}%;
+				}
+			}
+		</style>
+
+
+		<div class="slider__container" data-slider-container>
+		{% for article in blog.articles %}
+			<div class="slide" data-slide={{forloop.index0}} style="width: {{100 | divided_by: size}}%;">
+				<div data-slide-content>
+					<img src="{{article.image.src|img_url: 'original'}}" alt="{{article.image.alt}}" title="{{article.title}}">
+				</div>
+			</div>
+		{% endfor %}
+		</div>
+
+		<button class="slider__button" data-previous-slide-button>
+			<svg class="icon icon--massive"><use xlink:href="#icon-left"></use></svg>
+		</button>
+
+		<button class="slider__button slider__button--right" data-next-slide-button>
+			<svg class="icon icon--massive"><use xlink:href="#icon-right"></use></svg>
+		</button>
+	</div>
+</section>

@@ -1,0 +1,7 @@
+
+{% if product.compare_at_price > product.price %}
+{% unless hide_compare_at %}<span class="strike">{{product.compare_at_price|money|remove:'$'}}</span>{% endunless %}
+<span class="highlight">{{product.price|money|remove:'$'}} CAD</span>
+{% else %}
+<span class="">{{product.price|money|remove:'$'}} CAD</span>
+{% endif %}

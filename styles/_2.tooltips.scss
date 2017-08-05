@@ -1,0 +1,79 @@
+
+
+// #TOOLTIPS
+
+.tooltip_container {
+	position: relative;
+
+	&.tooltip_container--link {
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	&.tooltip_container--show,
+	&.tooltip_container--link:hover,
+	&.tooltip_container--link:focus {
+
+		.tooltip {
+			opacity: 1;
+			visibility: visible;
+
+			@include transition(all $fast $bezier, opacity $fast, visibility 0s);
+			@include transform(scale(1) translate(0));
+		}
+	}
+}
+
+	$tooltip_width: (216/$base) * 1rem;
+	$arrow_size: (5/$base)*1rem;
+
+	.tooltip {
+		position: absolute;
+		z-index: 2;
+		top: 100%;
+		left: -($tooltip_width/2) + $tiny_size;
+		width: $tooltip_width;
+		text-align: center;
+
+		opacity: 0;
+		visibility: hidden;
+
+		color: $white;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-weight: 500;
+		font-size: 13px;
+		background: $dark_background;
+		border-radius: $border_radius;
+		padding: $vertical_rythm/2.5 $vertical_rythm/2;
+		letter-spacing: 0.04em;
+
+		@include transition(all $fast $bezier, opacity $fast, visibility 0s linear $fast);
+		@include transform(scale(0.95) translate(0, -6px));
+		@include transform_origin(50%, 0);
+
+
+		&:before {
+			content: "";
+			position: absolute;
+			bottom: 100%;
+			left: $tooltip_width/2 - $tiny_size/2 - $arrow_size;
+
+			width: 0;
+			height: 0;
+			border: $arrow_size solid transparent;
+			border-top-width: 0;
+			border-bottom-color: $dark_background;
+		}
+
+		&.tooltip--left {
+			left: -($tiny_size) + $arrow_size;
+
+			@include transform_origin(10%, 0);
+
+			&:before {
+				left: $tiny_size + $arrow_size;
+			}
+		}
+	}
+

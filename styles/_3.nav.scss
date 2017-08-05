@@ -1,0 +1,149 @@
+
+
+// #NAV
+
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+
+	padding: ($gutter/2 + ((1/$base) * 1rem)) $gutter;
+	background-color: fade-out($white, 0.05);
+
+	@media #{$tablet_portrait} {
+		padding: ($gutter/2 + ((1/$base) * 1rem));
+	}
+
+	.header--with_alert & {
+		padding-top: $gutter/2 + $vertical_rythm*2;
+
+		@media #{$phone} {
+			padding-top: $gutter/2;
+		}
+	}
+}
+
+	.nav__link {
+		display: inline-block;
+		font-family: $alternate_font;
+		color: $grey;
+
+		padding: $vertical_rythm/2 $vertical_rythm;
+
+		& + & {
+			// margin-left: $vertical_rythm;
+
+			// @media #{$phone} {
+			// 	margin-left: $vertical_rythm/2;
+			// }
+		}
+
+		&.nav__link--light {
+			// color: $grey--lightish;
+		}
+
+		&:hover,
+		&:focus,
+		&.nav__link--active {
+			color: $body_color;
+		}
+
+		&.nav__link--active {
+			font-weight: bold;
+		}
+
+		&.nav__link--line {
+			display: block;
+		}
+
+		&.nav__link--cart {
+			position: absolute;
+			z-index: 30;
+			top: 0;
+			right: 0;
+
+			width: (140/$base) * 1rem;
+
+			@media #{$tablet_portrait} {
+				width: (100/$base) * 1rem;
+			}
+		}
+	}
+
+		.nav__link--cart__items {
+			position: absolute;
+			top: (70/$base) * 1rem;
+			right: 0;
+
+			width: (128/$base) * 1rem;
+
+			font-family: $alternate_font;
+			font-size: $huge_size;
+			font-weight: normal;
+			text-align: center;
+
+			@media #{$tablet_portrait} {
+				font-size: $medium_size;
+
+				top: (48/$base) * 1rem;
+				width: (90/$base) * 1rem;
+			}
+		}
+
+
+	// .nav__extra_menu_button {
+	// 	display: inline-block;
+	// 	color: $grey;
+	// 	border-radius: 0;
+	// 	padding: 0 (3/$base)*1rem;
+	// 	line-height: 0em;
+	// 	margin-left: 8px;
+	// 	border: none;
+	// 	background: transparent;
+
+	// 	.icon {
+	// 		width: 1.1rem;
+	// 		height: 1.1rem;
+	// 		vertical-align: baseline;
+	// 		top: 3px;
+	// 		position: relative;
+	// 	}
+
+	// 	&:hover, &:focus {
+	// 		background: transparent;
+	// 		color: $black;
+	// 	}
+
+	// 	@media #{$phone} {
+	// 		padding: 0 (5/$base)*1rem;
+
+	// 		.icon {
+	// 			width: (12/$base*1.33) * 1rem;
+	// 			height: (12/$base*1.33) * 1rem;
+	// 		}
+	// 	}
+	// }
+
+	// .nav__extra_menu {
+	// 	@extend .tooltip;
+	// 	@extend .tooltip--left;
+
+	// 	font-size: 13px;
+	// 	text-align: left;
+	// }
+
+	// 	.nav__extra_menu__link {
+	// 		display: inline-block;
+	// 		width: 100%;
+	// 		padding: (4/$base)*1rem (6/$base)*1rem;
+	// 		font-weight: 500;
+
+	// 		&:hover,
+	// 		&:focus {
+	// 			color: $grey;
+	// 		}
+	// 	}
+
+

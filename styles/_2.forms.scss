@@ -1,0 +1,37 @@
+
+
+// #FORMS
+
+form {
+	// margin: 0 auto;
+	// max-width: (300/$base) * 1rem;
+
+	&[disabled] {
+		opacity: 0.2;
+		pointer-events: none;
+	}
+}
+
+	fieldset {
+		position: relative;
+		z-index: 1;
+
+		padding: $gutter;
+		border: none;
+		border-radius: $border_radius;
+		margin: 0;
+
+		background: white;
+	}
+
+	legend {
+		display: inline-block;
+		position: relative;
+		top: $vertical_rythm*2;
+		padding: 0;
+		margin: $vertical_rythm*2 0 $vertical_rythm;
+
+		font-size: $slight_size;
+	}
+
+

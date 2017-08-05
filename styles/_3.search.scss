@@ -1,0 +1,32 @@
+
+
+// #SEARCH
+
+.search_overlay {
+	@extend .overlay;
+	@extend .overlay--full;
+
+	z-index: 40;
+}
+
+	.search__container {
+		@extend .overlay__container;
+		
+		max-width: $max_width;
+		background: transparent;
+		@include shadow(none);
+	}
+
+		.search__input {
+			border-color: $black !important;
+		}
+
+	.search__back {
+		@extend .overlay__back;
+
+		background: transparent;
+	}
+
+	.search__close {
+		@extend .overlay__close;
+	}

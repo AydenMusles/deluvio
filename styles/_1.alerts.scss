@@ -1,0 +1,20 @@
+// #ALERTS
+
+.alert {
+	color: $white;
+	font-size: $small_size;
+	text-align: center;
+	background: $dark_background;
+
+	padding: $vertical_rythm/3;
+	border: none;
+
+	&:empty {
+		display: none;
+	}
+
+	a:hover,
+	a:focus {
+		border-bottom: 2px solid;
+	}
+}

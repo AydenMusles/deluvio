@@ -1,0 +1,25 @@
+
+
+{% assign class = 'hero--'|append: article.id %}
+{% include 'background', class: class, image: article.image %}
+
+<article class="article" data-section-id='{{section.id}}' data-section-type='article' data-article-id="{{article.id}}" id="{{article.handle}}">
+	<div class="hero hero--middle hero--medium dark_back hero--{{article.id}}">
+
+		<div class="hero__inner">
+			<div class="grid grid--center">
+				<div class="col col--6of12 col--tablet_landscape--8of12 col--tablet_portrait--10of12 col--phone--12of12 text_center">
+					<h1 class="medium_bottom">{{article.title}}</h1>
+					<div class="p--slight">{{article.excerpt}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid grid--center padded padded--thick">
+		<div class="col col--6of12 col--tablet_landscape--8of12 col--tablet_portrait--10of12 col--phone--12of12">
+			{{article.content}}
+		</div>
+	</div>
+
+</article>

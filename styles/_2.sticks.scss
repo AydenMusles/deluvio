@@ -1,0 +1,23 @@
+
+// #STICKS
+
+.sticks {
+	position: absolute;
+	left: $gutter;
+	width: 16.666%;
+	padding-right: $gutter;
+
+	&.sticks--fixed {
+		position: fixed;		
+		top: 100px;
+	}
+
+	@media #{$phone} {
+		position: relative;
+		top: 0;
+		left: $gutter / 2;
+		width: 100%;
+
+		margin-bottom: $vertical_rythm;
+	}
+}

@@ -1,0 +1,50 @@
+
+<section class="login" id="login" data-turbolinks-permanent>
+	<a href="#" class="login__back" data-hide></a>
+
+	<div class="slider login__container">
+		<div class="alert login__alert fades_out fade_out" data-login-error><div class="padded"><span data-login-error-text></span> <a href="#" class="a--underline" data-close-error>{{text.alert_close}}</a></div></div>
+
+
+		<a href="#" class="cart__close a--highlight" data-hide><svg class="icon"><use xlink:href="#icon-close"></use></svg></a>
+
+
+		<div class="slider__container" style="width: 200%;" data-slider-container>
+			<div class="slide login__slide" data-slide=0 style="width: 50%;">
+				<div class="text_center" data-slide-content>
+					<h1 class="medium_bottom">{{'customer.login.title'|t}}</h1>
+
+					{% form 'customer_login' %}
+
+					<p><input type="email" name="customer[email]" id="email" placeholder="{{'customer.login.email'|t}}"></p>
+					<p><input type="password" name="customer[password]" placeholder="{{'customer.login.password'|t}}"></p>
+
+					<p><a href="/account/reset_password" class="a--highlight small">{{'customer.login.forgot_password'|t}}</a></p>
+
+					<div class="medium_bottom"><button type="submit">{{'customer.login.sign_in'|t}}</button></div>
+					{% endform %}
+
+					<a href="#" class="a--highlight small" data-slide-marker=1>{{'customer.login.register'|t}}</a>
+				</div>
+			</div>
+
+			<div class="slide login__slide" data-slide=1 style="width: 50%;">
+				<div class="text_center" data-slide-content>
+					<h1 class="medium_bottom">{{'customer.register.title'|t}}</h1>
+
+					{% form 'create_customer' %}
+
+					<p><input type="text" name="customer[first_name]" placeholder="{{'customer.register.first_name'|t}}"></p>
+					<p><input type="text" name="customer[last_name]" placeholder="{{'customer.register.last_name'|t}}"></p>
+					<p><input type="email" name="customer[email]" id="email" placeholder="{{'customer.register.email'|t}}"></p>
+					<p><input type="password" name="customer[password]" placeholder="{{'customer.register.password'|t}}"></p>
+
+					<div class="medium_bottom"><button type="submit">{{'customer.register.submit'|t}}</button></div>
+					{% endform %}
+
+					<a href="#" class="a--highlight small" data-slide-marker=0>{{'customer.register.login'|t}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

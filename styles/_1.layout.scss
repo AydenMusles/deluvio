@@ -1,0 +1,144 @@
+
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+
+.shopify-preview-bar {
+	display: none !important;
+}
+
+
+
+// #BODY
+
+html {
+	overflow-x: hidden;
+}
+
+body {
+
+}
+
+
+// #HEADER
+
+header {
+
+}
+
+
+// #MAIN
+
+.main {
+	min-height: 66vh;
+	max-width: $max_width;
+	margin: 0 auto;
+}
+
+
+// #FOOTER
+
+footer {
+
+}
+
+
+
+// #MIXINS
+
+.max_width {
+	max-width: $max_width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.padded {
+	padding: $gutter;
+
+	@media #{$phone} {
+		padding: $gutter $gutter/2;
+	}
+
+	&.padded--tight {
+		padding: $gutter/2;
+	}
+
+	&.padded--thick {
+		padding: $gutter*4;
+
+		@media #{$tablet_landscape} {
+			padding: $gutter*3;
+		}
+
+		@media #{$tablet_portrait} {
+			padding: $gutter*2;
+		}
+
+		@media #{$phone} {
+			padding: $gutter*2 $gutter/2;
+		}
+	}
+
+	&.padded--vertically_thick {
+		padding: $gutter*6 $gutter*3;
+
+		@media #{$tablet_landscape} {
+			padding: $gutter*4 $gutter*2;
+		}
+
+		@media #{$phone} {
+			padding: $gutter*3 $gutter/2;
+		}
+	}
+
+	&.padded--flat_top {
+		padding-top: 0;
+	}
+
+	&.padded--flat_on_phone {
+
+		@media #{$phone} {
+			padding: 0;
+		}
+	}
+}
+
+.huge_bottom {
+	margin-bottom: $vertical_rythm*8;
+
+	@media #{$tablet_landscape} {
+		margin-bottom: $vertical_rythm*6;
+	}
+
+	@media #{$phone} {
+		margin-bottom: $vertical_rythm*4;
+	}
+}
+
+.big_bottom { margin-bottom: $vertical_rythm*4; }
+.medium_bottom { margin-bottom: $vertical_rythm*2; }
+.normal_bottom { margin-bottom: $vertical_rythm; }
+.small_bottom { margin-bottom: $vertical_rythm/4; }
+.flat_bottom { margin-bottom: 0 !important; }
+.flat_top { margin-top: 0 !important; }
+.normal_top { margin-top: $vertical_rythm; }
+.medium_top { margin-top: $vertical_rythm*2; }
+.nav_top {margin-top: $vertical_rythm*3.75;} //60px
+
+.bordered { border: 1px solid $grey--light; }
+.border_left { border-left: 1px solid $grey--light; }
+.border_right { border-right: 1px solid $grey--light; @media #{$tablet_landscape} { border-right: none; } }
+
+.relative { position: relative; }
+.hide { display: none !important; }
+.invisible { visibility: hidden; }
+.inline_block { display: inline-block; }
+.text_center { text-align: center; }
+.text_right { text-align: right; }
+.text_left { text-align: left; }
+.text_left_on_tablet_portrait { @media #{$tablet_portrait} { text-align: left; } }
+.text_center_on_phone { @media #{$phone} { text-align: center; } }
+
+

@@ -1,0 +1,53 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}" />
+
+  <title>
+  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% include 'meta' %}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+  {{ 'all.css' | asset_url | stylesheet_tag }}
+
+  {{ content_for_header }}
+</head>
+
+
+<body id="{{ page_title | handle }}" class="{% if customer %}logged_in {% endif %}">
+
+  {% include 'icons' %}
+  {% section 'header' %}
+
+  <div class="main" role="main">
+  {{ content_for_layout }}
+  </div>
+
+  {% section 'buttons' %}
+  {% section 'badge' %}
+  {% section 'footer' %}
+  {% comment %}{% section 'newsletter_popup' %}{% endcomment %}
+
+
+  <script src="//cdn.jsdelivr.net/g/react@15.5.4(react.min.js+react-dom.min.js),turbolinks@5.0.3(turbolinks.js),keymaster.js@1.6.3,velocity@1.5.0,fetch@2.0.1" data-turbolinks-eval="false"></script>
+
+
+  <script src="{{'app.js' | asset_url}}" async data-turbolinks-eval="false"></script>   
+
+  <script src="//localhost:8080/app.js" async data-turbolinks-eval="false"></script>
+  <script src="//localhost:9000/livereload.js" async data-turbolinks-eval="false"></script>
+</body>
+</html>

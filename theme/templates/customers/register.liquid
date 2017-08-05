@@ -1,0 +1,8 @@
+
+{% form 'create_customer' %}
+{% if form.posted_successfully? %}
+Success
+{% else %}
+{{ form.errors | default_errors }}
+{% endif %}
+{% endform %}

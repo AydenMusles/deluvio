@@ -1,0 +1,36 @@
+{% paginate search.results by 10 %}
+
+<section class="padded padded--thick padded--underheader" {% unless search.performed %}data-show-search{% endunless %}>
+
+  <div class="text_center medium_bottom">
+    <h1>{{ 'general.search.title' | t }}</h1>
+  </div>
+
+{% if search.performed %}
+  {% if search.results_count == 0 %}
+  <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+  {% else %}
+  <p>{{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}</p>
+  
+  <div class="grid grid--guttered">
+  {% for item in search.results %}
+    <div class="col col--3of12 col--tablet_portrait--4of12 col--phone--6of12">
+    {% assign image_size = 'grande' %}
+    {% if item.object_type == 'product' %}
+      {% include 'collection_product', product: item %}
+    {% endif %}
+    {% if item.object_type == 'article' %}
+      
+    {% endif %}
+    </div>
+  {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+{% endif %}
+
+</section>
+{% endpaginate %}

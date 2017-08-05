@@ -1,0 +1,85 @@
+
+<section data-section-id="{{section.id}}">
+	<div class="grid grid--stretch">
+		<div class="col col--6of12 col--tablet_landscape--12of12 padded padded--thick text_center border_right">
+			<h1 class="h1--massive">{{section.settings.left_title}}</h1>
+			<h3>{{section.settings.left_body}}</h3>
+			<p><a href="{{section.settings.left_link}}" class="button button--big" target="_blank">{{section.settings.left_cta}}</a></p>
+			<small><a href="{{section.settings.left_link}}" target="_blank">{{section.settings.left_link_text}}</a></small>
+		</div>
+		<div class="col col--6of12 col--tablet_landscape--12of12 padded padded--thick text_center">
+			<h1 class="h1--massive">{{section.settings.right_title}}</h1>
+			<h3>{{section.settings.right_body}}</h3>
+			<p><a href="{{section.settings.right_link}}" class="button button--big" target="_blank">{{section.settings.right_cta}}</a></p>
+			<small><a href="{{section.settings.right_link}}" target="_blank">{{section.settings.right_link_text}}</a></small>
+		</div>
+	</div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Buttons",
+  "settings": [
+  	{
+      "type": "text",
+      "id": "left_title",
+      "label": "Left title",
+      "default": "Gallery"
+    },
+    {
+      "type": "text",
+      "id": "left_body",
+      "label": "Left body",
+      "default": "See what’s being worked on."
+    },
+    {
+      "type": "url",
+      "id": "left_link",
+      "label": "Left address link"
+    },
+    {
+      "type": "text",
+      "id": "left_cta",
+      "label": "Left cta",
+      "default": "Follow on IG"
+    },
+    {
+      "type": "text",
+      "id": "left_link_text",
+      "label": "Left link text",
+      "default": "instagram.com/deluvio"
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Right title",
+      "default": "“Msg me”."
+    },
+    {
+      "type": "text",
+      "id": "right_body",
+      "label": "Right body",
+      "default": "Want something custom?"
+    },
+    {
+      "type": "url",
+      "id": "right_link",
+      "label": "Right address link"
+    },
+    {
+      "type": "text",
+      "id": "right_cta",
+      "label": "Right cta",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "right_link_text",
+      "label": "Right link text",
+      "default": "info@deluvio.com"
+    }
+  ]
+}
+{% endschema %}

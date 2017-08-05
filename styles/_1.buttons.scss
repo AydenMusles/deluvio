@@ -1,0 +1,89 @@
+
+// #BUTTONS
+
+button,
+.button {
+	cursor: pointer;
+	display: inline-block;
+
+	font-family: $body_font;
+	font-weight: normal;
+	font-size: inherit;
+	line-height: 1em;
+	text-align: center;
+	text-decoration: none;
+	color: $white;
+
+	position: relative;
+	padding: $vertical_rythm/2 $vertical_rythm*3;
+	background: $dark_background;
+	border: 2px solid transparent;
+
+	box-shadow: 0 2px 10px fade-out($grey--light, 0.5);
+
+
+	@include transition(background $fast, color $fast, border-color $fast, transform $fast, -webkit-transform $fast);
+
+
+	&:active {
+		// top: 1px;
+	}
+
+	&:disabled {
+		pointer-events: none;
+		opacity: 0.2;
+	}
+
+	&.button--big {
+		font-size: $medium_size;
+		border-radius: $border_radius;
+	}
+
+
+	&.button--full {
+		padding-right: 0;
+		padding-left: 0;
+		width: 100%;
+	}
+
+	&.button--outline {
+		color: inherit;
+		border: 1px solid;
+		background: transparent;
+	}
+
+	&:hover,
+	&:focus {
+		color: $white;
+		background: $black--light;
+	}
+
+	&.button--white {
+		color: $body_color;
+		background: $white;
+
+		&:hover,
+		&:focus {
+			color: $body_color;
+			background: $grey--light;
+		}
+	}
+
+
+	&.button--transparent {
+		color: $body_color;
+		background: transparent;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+
+		&:hover,
+		&:focus {
+			color: $black--light;
+		}
+	}
+}
+
+
+
+

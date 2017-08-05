@@ -1,0 +1,72 @@
+
+
+// #PRODUCT
+
+.product {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+
+	&.product--fade {
+		opacity: 0.5;
+	}
+
+	&.product--hover {
+
+		img {
+			@include transition(box-shadow $fast)
+		}
+			
+
+		&:hover img,
+		&:focus img {
+			box-shadow: 0 2px 20px fade-out($black, 0.5);
+		}
+	}
+}
+
+	.product__rotate {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+
+		@include transformer();
+		@include transform_origin(0, 0);
+		@include transform(rotate(90deg) translateY($gutter));
+
+		@media #{$tablet_portrait} {
+			position: relative;
+			margin-top: $vertical_rythm;
+
+			@include transform(none);
+		}
+	}
+
+
+	.product__thumbnails {
+
+	}
+
+		.product__thumbnail {
+			display: inline-block;
+
+			@media #{$tablet_portrait} {
+				max-width: (66/$base) * 1rem;
+				vertical-align: top;
+
+				& + & {
+					margin-left: $vertical_rythm/2;
+				}
+			}
+
+			&.product__thumbnail--fade {
+				opacity: 0.2;
+			}
+
+			&:hover,
+			&:focus {
+				opacity: 1;
+			}
+		}
+

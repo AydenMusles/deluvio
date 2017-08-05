@@ -1,0 +1,29 @@
+<div class="padded padded--underheader huge_bottom">
+	{% for block in section.blocks %}
+	{% assign collection = collections[block.settings.collection] %}
+
+	{% include 'collection' %}
+	{% endfor %}
+</div>
+
+
+{% schema %}
+{
+  "name": "Collections",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+		{
+			"id": "collection",
+			"type": "collection",
+			"label": "Collection"
+		}
+      ]
+    }
+  ]
+}
+{% endschema %}

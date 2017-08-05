@@ -1,0 +1,9 @@
+<picture>
+	{% if mobile_image %}
+	<source srcset="{{mobile_image.src|img_url: '666x'}}" media="(max-width: 600px)">
+	{% else %}
+	<source srcset="{{image.src|img_url: '666x'}}" media="(max-width: 600px)">
+	{% endif %}
+	<source srcset="{{image.src|img_url: '1111x'}}" media="(max-width: 900px)">
+	<img src="{{image.src|img_url: '1666x'}}" alt="{{image.alt}}">
+</picture>

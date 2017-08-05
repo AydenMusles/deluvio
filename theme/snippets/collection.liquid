@@ -1,0 +1,24 @@
+
+
+<div class="grid grid--thick_guttered grid--spaced_around{% if grid_align %} grid--{{grid_align}}{% endif %}">
+	{% for product in collection.products limit: limit %}
+	<div class="col {% if products_per_row == '2' %}col--4of12 col--tablet_portrait--6of12 col--phone--12of12{% elsif products_per_row == '4' %}col--3of12 col--tablet_portrait--4of12 col--phone--12of12{% else %}col--4of12 col--phone--12of12{% endif %}">
+		<a class="product product--hover{% if product.available == false %} product--fade{% endif %}" href="{{product.url | within: collection }}" {% comment %}data-show-quickview data-product='{{product|json|escape}}' data-product-options='{{product.options_with_values|json}}'{% endcomment %}>
+			{% include 'product_tags' %}
+
+			<div>{% include 'picture', image: product.featured_image %}</div>
+
+			<div class="product__rotate">
+				<h2 class="small_bottom">{{product.title}} <span>· {{product.type}}</span></h2>
+				<p class="alternate grey">{% include 'product_price', hide_compare_at: true %}</p>
+			</div>
+		</a>
+	</div>
+	{% if products_per_row == '2' %}
+	<div class="col col--1of12 hide_on_tablet_portrait"></div>
+	{% endif %}
+	{% endfor %}
+</div>
+
+{% include 'quickview' %}
+

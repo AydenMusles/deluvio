@@ -1,0 +1,94 @@
+
+
+// #HEROS
+
+.hero {
+	@extend .grid;
+	@extend .grid--bottom;
+
+	@extend .padded;
+
+	position: relative;
+	overflow: hidden;
+
+	background-position: center;
+	background-size: cover;
+
+	&.hero--small {
+		min-height: 40vh;
+	}
+
+	&.hero--medium {
+		min-height: 60vh;
+	}
+
+	&.hero--large {
+		min-height: 80vh;
+	}
+
+	&.hero--x-large {
+		min-height: 92vh;
+	}
+
+	&.hero--top {
+		align-items: flex-start;
+		-webkit-align-items: flex-start;
+		-ms-align-items: flex-start;
+	}
+
+	&.hero--middle {
+		align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+	}
+
+	&:after {
+		content: '';
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 100%;
+	}
+}
+
+	.hero__inner {
+		z-index: 1;
+		width: 100%;
+	}
+
+	// .hero__back {
+	// 	position: absolute;
+	// 	z-index: 1;
+	// 	top: 50%;
+	// 	left: 50%;
+	// 	width: auto;
+	// 	height: auto;
+	// 	min-height: 100%;
+	// 	max-width: none;
+	// 	min-width: 100%;
+
+	// 	// @extend .grid;
+	// 	// @extend .grid--center;
+	// 	// @extend .grid--middle;
+
+	// 	@include transform(translate(-50%, -50%));
+
+
+	// 	.hero--small & {
+	// 		min-height: 40vh;
+	// 	}
+
+	// 	.hero--medium & {
+	// 		min-height: 60vh;
+	// 	}
+
+	// 	.hero--large & {
+	// 		min-height: 80vh;
+	// 	}
+
+	// 	.hero--x-large & {
+	// 		min-height: 100vh;
+	// 	}
+	// }
+

@@ -1,0 +1,41 @@
+<section class="padded padded--vertically_thick">
+	<div class="grid grid--center">
+		<div class="col col--6of12 col--tablet_landscape--8of12 col--tablet_portrait--10of12 col--phone--12of12">
+			<div class="cart__container">
+
+				{% if cart.item_count > 0 %}
+				<form action="/cart" method="post">
+					{% for item in cart.items %}
+					<div class="cart__item">
+						<div class="grid grid--tight_guttered grid--middle">
+							<div class="col col--2of12">
+								<a href="{{item.url}}"><img src="{{item.image.src|img_url: 'medium'}}"></a>
+							</div>
+							<div class="col col--7of12">
+								{{item.quantity}}x <a href="{{item.url}}"><strong>{{item.title}}</strong></a>
+							</div>
+							<div class="col col--2of12 text_right">{{item.price|money}}</div>
+							<div class="col col--1of12 text_right">
+								<a href="/cart/change?id={{item.key}}&quantity=0">✕</a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+
+					<div class="cart__item">
+						<button class="button--full" type="submit" name="checkout">Proceed to checkout ({{cart.total_price|money}})</button>
+					</div>
+				</form>
+				{% else %}
+				<div class="cart__item text_center">
+					<p>Your cart is empty at the moment.</p>
+				</div>
+				<div class="cart__item">
+					<a href="/" class="button button--full">Back to the homepage</a>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+</section>

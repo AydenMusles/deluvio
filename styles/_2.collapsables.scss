@@ -1,0 +1,34 @@
+
+
+// #COLLAPSABLES
+
+input[type="checkbox"] {
+
+	&.checkbox--collapse {
+		display: none;
+
+		& + label {
+			color: $highlight;
+
+			@include transition(color $slow);
+		}
+
+		& ~ .collapsable {
+			max-height: 0;
+			overflow-y: hidden;
+
+			@include transition(max-height $slow);
+		}
+
+		&:checked {
+			
+			& + label {
+				color: $body_color;
+			}
+
+			& ~ .collapsable {
+				max-height: 300px;
+			}
+		} 
+	}
+}

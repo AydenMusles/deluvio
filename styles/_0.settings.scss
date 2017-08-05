@@ -1,0 +1,69 @@
+
+
+// #COLORS
+
+$white: #fff;
+$black: #000000;
+$black--light: #2e2e2e;
+
+$grey: #777777;
+$grey--lightish: #979797;
+$grey--light: #DDDDDD;
+$grey--lighter: #F5F5F5;
+
+$blue: #0096FA;
+$red: #DB2A12;
+$green: #12BC04;
+
+$body_color: $black;
+$headings_color: inherit;
+$highlight: $black;
+$light_background: $grey--lighter;
+$dark_background: $black;
+$alert_color: $red;
+
+
+// #FONTS
+
+$body_font: "GT Sectra", serif;
+$headings_font: "GT Sectra", serif;
+$alternate_font: "HK Grotesk Pro", sans-serif;
+
+
+// #LAYOUT
+
+$base: 16;
+$base_size: $base * 1px;
+$massive_size: (64/$base) * 1rem;
+$huge_size: (36/$base) * 1rem;
+$big_size: (28/$base) * 1rem;
+$medium_size: (22/$base) * 1rem;
+$slight_size: (19/$base) * 1rem;
+$small_size: (12/$base) * 1rem;
+$tiny_size: (10/$base) * 1rem;
+
+$vertical_rythm: 1.25rem;
+$line_height: 1.5;
+$max_width: (1666/$base) * 1rem;
+$letter_spacing: 0.02em;
+$border_radius: 4px;
+
+$number_of_columns: 12;
+$gutter: (26/$base) * 1rem;
+
+
+// #ANIMATIONS
+
+$fast: 0.333s;
+$slow: 0.666s;
+// $very_slow: 1.666s;
+$bezier: cubic-bezier(.24, .22, .015, 1.56);
+
+// #BREAKPOINTS
+
+$phone: "all and (max-device-width:500px), all and (max-width:500px)";
+$tablet_portrait: "all and (max-device-width:800px), all and (max-width:800px)";
+$tablet_landscape: "all and (max-device-width:1100px), all and (max-width:1100px)";
+$big_desktop: "all and (min-device-width:1800px), all and (min-width:1800px)";
+$breakpoints: "big_desktop" $big_desktop, "tablet_landscape" $tablet_landscape, "tablet_portrait" $tablet_portrait, "phone" $phone;
+

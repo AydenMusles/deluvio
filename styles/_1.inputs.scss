@@ -1,0 +1,194 @@
+
+
+
+// #LABELS
+
+label,
+.label {
+	cursor: pointer;
+	display: block;
+
+	font-family: $alternate_font;
+	font-size: $small_size;
+	color: $grey;
+
+	margin: 0 0 $vertical_rythm/6;
+}
+
+
+// #INPUTS
+
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="file"],
+input[type="date"],
+input[type="datetime-local"],
+optgroup,
+select,
+textarea,
+.input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+
+	position: relative;
+	width: 100%;
+
+	font-family: $alternate_font;
+	font-size: $slight_size;
+	font-weight: normal;
+	// line-height: 1em;
+
+	color: inherit;
+	background: transparent;
+	padding: $vertical_rythm/2 $vertical_rythm $vertical_rythm/3;
+	border: 2px solid $grey--light;
+	border-radius: 0;
+
+	margin: 0 0 $vertical_rythm;
+
+	@include transition(background $fast, color $fast, border-color $fast, opacity $fast);
+
+
+	&.input--center {
+		text-align: center;
+	}
+
+	&:active {
+		// top: 1px;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	&:focus {
+		border-color: $highlight;
+	}
+
+	&.input--tight {
+		padding: $vertical_rythm/4 $vertical_rythm/2;
+	}
+
+	&.input--transparent {
+		padding: 0;
+		border: none;
+		background: transparent;
+	}
+}
+
+
+
+textarea {
+	padding: $vertical_rythm/1.5 $vertical_rythm;
+	line-height: $line_height;
+}
+
+
+select {
+	cursor: pointer;
+	font-size: $base_size;
+}
+
+input[type="search"] {
+	box-sizing: border-box;
+}
+
+input[type="file"] {
+	display: block;
+}
+
+$radio_size: 1rem;
+
+input[type="checkbox"],
+input[type="radio"] {
+	cursor: pointer;
+	position: relative;
+
+	// display: inline-block;
+	// width: $radio_size;
+	// height: $radio_size;
+	// vertical-align: middle;
+	// margin: $vertical_rythm/4 $vertical_rythm $vertical_rythm/2 0;
+
+	// border: 1px solid $grey--light;
+	// background: transparent;
+	// border-radius: 0;
+
+	// @include transition(background-color $fast, border-color $fast, color $fast, opacity $fast);
+
+	&:before {
+		
+	}
+
+	& + label {
+		display: inline-block;
+		margin-right: $vertical_rythm/2;
+	}
+
+	&:active {
+		// top: 1px;
+	}
+}
+
+	// input[type="radio"] {
+	// 	display: none;
+
+	// 	& + label {
+	// 		font-weight: 100;
+	// 		display: inline-block;
+	// 		position: relative;
+
+	// 		padding: $vertical_rythm/3  $vertical_rythm/4;
+	// 		vertical-align: middle;
+	// 		// margin: $vertical_rythm/4 $vertical_rythm/3 $vertical_rythm/4 0;
+
+	// 		color: $highlight;
+	// 		background: transparent;
+	// 		border-bottom: 1px solid transparent;
+
+	// 		// @include transition(color $fast, background $fast, border-color $fast);
+	// 	}
+
+	// 	&:disabled {
+	// 		& + label {
+	// 			opacity: 0.5;
+	// 			pointer-events: none;
+	// 		}
+	// 	}
+		
+
+	// 	&:checked,
+	// 	&:hover,
+	// 	&:focus {
+
+	// 		& + label {
+	// 			// color: $white;
+	// 			// background: $highlight;
+	// 			border-color: $highlight;
+	// 		}
+	// 	}
+	// }
+
+
+
+
+
+:focus {
+	outline: none;
+	-moz-outline-style: none;
+}
+
+::-webkit-input-placeholder, ::-webkit-input-placeholder,
+:-moz-placeholder, :-moz-placeholder {
+	color: $body_color;
+}
+
+

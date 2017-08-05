@@ -1,0 +1,19 @@
+
+{% if product.available == false %}
+<div class="product__tag product__tag--sold_out">
+	Sold Out
+</div>
+{% elsif product.compare_at_price > product.price %}
+<div class="product__tag product__tag--highlight">
+	Sale
+</div>
+{% else %}
+{% for tag in product.tags %}
+{% if tag == 'new' %}
+<div class="product__tag">
+	New
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+

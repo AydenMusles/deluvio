@@ -1,0 +1,29 @@
+{% form 'contact' | class: 'contact' %}
+
+	{% if form.posted_successfully? %}
+	<p>{{ 'contact.form.post_success' | t }}</p>
+	{% endif %}
+
+	{% if form.errors? %}
+	<p>Your contact form has {{ form.errors | size | pluralize: "an error", "a few errors" }}. To submit your form, make the following changes and try again:</p>
+	<ul>
+		{% for field in form.errors %}
+		<li>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	<label for="name">Name</label>
+	<input type="text" required id="name" name="contact[name]">
+
+	<label for="email">Email Address</label>
+	<input type="email" required id="email" name="contact[email]">
+
+	<label for="telephone">Telephone #</label>
+	<input type="tel" id="telephone" name="contact[phone]">
+
+	<label for="message">Message</label>
+	<textarea required rows="6" id="message" name="contact[body]"></textarea>
+
+	<button class="button--full" type="submit">Send</button>
+{% endform %}

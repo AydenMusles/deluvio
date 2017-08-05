@@ -1,0 +1,25 @@
+
+// #BADGE
+.badge {
+	position: absolute;
+	top: 100%;
+	right: $gutter;
+	z-index: 10;
+
+	width: (142/$base) * 1rem;
+	padding: $gutter/2;
+
+	box-shadow: 0 2px 10px fade-out($grey--light, 0.25);
+}
+
+	.badge__image {
+		padding: $gutter/2;
+	}
+
+	.badge__text {
+		font-family: $alternate_font;
+		font-size: $slight_size;
+		text-align: center;
+	}
+
+	

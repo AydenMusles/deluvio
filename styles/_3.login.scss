@@ -1,0 +1,33 @@
+
+
+// #LOGIN
+
+.login {
+	@extend .overlay;
+	@extend .overlay--full;
+}
+
+	.login__back {
+		@extend .overlay__back;
+	}
+
+
+	.login__container {
+		@extend .overlay__container;
+
+		max-width: (400/$base) * 1rem;
+		width: 100%;
+		background: $white;
+	}
+
+		.login__slide {
+			padding: $gutter*2;
+		}
+
+		.login__close {
+			@extend .overlay__close;
+		}
+
+		.login__alert {
+			@extend .overlay__alert;
+		}
