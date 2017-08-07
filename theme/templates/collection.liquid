@@ -1,9 +1,6 @@
 
 
-<div class="padded padded--vertically_thick">
-	<h1 class="text_center">{{collection.title}}</h1>
-</div>
 
-<section class="padded padded--thick padded--flat_top">
-  {% include 'collection', products_per_row: 2, grid_align: 'middle', limit: 50 %}
+<section class="padded padded--thick relative">
+  {% include 'collection', products_per_row: '2', grid_align: 'top', limit: 50 %}
 </section>
