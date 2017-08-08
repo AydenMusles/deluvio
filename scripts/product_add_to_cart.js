@@ -79,11 +79,8 @@ export class ProductAddToCart extends React.Component {
 			{this.props.variants.length > 1 && this.props.options.map((option, index)=> (
 			<Select key={option.name} name={option.name} label={option.name} 
 				onChange={this.updateVariant.bind(this)}
-				value={this.state[option.name]}>
-				{option.values.map((value)=> (
-				<option key={value} value={value}>{value}</option>
-				))}
-			</Select>
+				value={this.state[option.name]}
+				options={option.values} />
 			))}
 
 			<button className="button--full" type="submit" disabled={!currentVariant.available}>Add to bag{currentVariant.available ? "" : " (Out of Stock)"}</button>

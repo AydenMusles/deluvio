@@ -92,10 +92,61 @@ textarea {
 }
 
 
-select {
+select,
+.select {
 	cursor: pointer;
 	font-size: $base_size;
 }
+
+.select {
+	position: relative;
+
+	&.select--focused {
+		// max-height: none;
+	}
+
+	input {
+		cursor: pointer;
+		font-size: $base_size;
+	}
+}
+
+	.options {
+		position: absolute;
+		left: 0;
+		bottom: 100%;
+		width: 100%;
+		
+		background: $white;
+		border: 2px solid $grey--light;
+		border-bottom: none;
+
+		display: none;
+
+		.select--focused & {
+			display: block;
+		}
+	}
+
+		.option {
+			font-family: $alternate_font;
+			font-size: $base_size;
+			padding: $vertical_rythm/2 $vertical_rythm $vertical_rythm/3;
+
+			.select--focused & {
+
+				&.option--current {
+					background: $grey--lighter;	
+				}
+				
+				&:hover {
+					background: $grey--light;
+				}
+			}
+		}
+
+
+
 
 input[type="search"] {
 	box-sizing: border-box;
@@ -104,6 +155,8 @@ input[type="search"] {
 input[type="file"] {
 	display: block;
 }
+
+
 
 $radio_size: 1rem;
 
