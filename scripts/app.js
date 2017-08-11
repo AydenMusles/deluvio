@@ -53,6 +53,7 @@ const Unsplash = {
 					delay={newsletterPopup.getAttribute("data-newsletter-delay")}
 					title={newsletterPopup.getAttribute("data-newsletter-title")}
 					body={newsletterPopup.getAttribute("data-newsletter-body")}
+					image={newsletterPopup.getAttribute("data-newsletter-image")}
 					cta={newsletterPopup.getAttribute("data-newsletter-cta")}
 					success={newsletterPopup.getAttribute("data-newsletter-success")} />, newsletterPopup
 			)

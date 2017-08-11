@@ -4,35 +4,27 @@
 
 .newsletter {
 	@extend .overlay;
-	@extend .overlay--full;
-	@extend .dark_back;
+	@extend .overlay--bottom_left;
 
-	background: transparent;
+	box-shadow: 0 2px 10px fade-out($black, 0.85);
 }
 
-	.newsletter__back {
-		@extend .overlay__back;
-	}
 
 	button.newsletter__close {
 		@extend .overlay__close;
-
-		color: $white;
-
-		&:hover,
-		&:focus {
-			color: $grey--light;
-		}
 	}
 
 	.newsletter__container {
 		@extend .overlay__container;
 
-		background: transparent;
-		border: 2px solid;
+		padding-top: $gutter*2;
+		border: none;
 		max-width: (666/$base) * 1rem;
 	}
 
-		.newsletter__close {
+		button.newsletter__close {
 			@extend .overlay__close;
+
+			top: -$gutter/2;
+			right: -$gutter*1.5;
 		}

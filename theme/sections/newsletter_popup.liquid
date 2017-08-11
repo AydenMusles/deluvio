@@ -1,6 +1,6 @@
 
 
-<section id="newsletter" data-turbolinks-permanent data-section-id="{{ section.id }}" data-section-type="newsletter-section" data-newsletter-title="{{section.settings.title}}" data-newsletter-body="{{section.settings.body}}" data-newsletter-cta="{{section.settings.button_text}}" data-newsletter-success="{{section.settings.success_text}}" data-newsletter-shop="{{shop.domain}}" data-newsletter-delay={% if section.settings.disabled %}"never"{% else %}{{section.settings.delay}}{% endif %}></section>
+<section id="newsletter" data-turbolinks-permanent data-section-id="{{ section.id }}" data-section-type="newsletter-section" data-newsletter-title="{{section.settings.title}}" data-newsletter-body="{{section.settings.body}}" data-newsletter-image="{{section.settings.image|img_url: 'master'}}" data-newsletter-cta="{{section.settings.button_text}}" data-newsletter-success="{{section.settings.success_text}}" data-newsletter-shop="{{shop.domain}}" data-newsletter-delay={% if section.settings.disabled %}"never"{% else %}{{section.settings.delay}}{% endif %}></section>
 
 
 
@@ -25,6 +25,11 @@
       "type": "text",
       "label": "Text",
       "default": "Sign up now to receive your discount code and updates on our latest products and promotions."
+    },
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
     },
     {
       "type": "text",

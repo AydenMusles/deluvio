@@ -98,27 +98,30 @@ export class NewsletterPopup extends React.Component {
 
 	render() {
 
-		return <div className={`newsletter ${this.state.showed && "overlay--show"}`}>
-			<button className="button--transparent newsletter__back" onClick={this.hide.bind(this)}></button>
-			<button className="button--transparent newsletter__close" onClick={this.hide.bind(this)}>✕</button>
+		return <div className={`newsletter ${this.state.showed && "overlay--show"} hide_on_phone`}>
+			<button className="button--transparent newsletter__close" onClick={this.hide.bind(this)}>close</button>
 
-			<div className="newsletter__container padded padded--thick">
-				<h2 className="text_center">{this.props.title}</h2>
-				<p className="text_center medium_bottom">{this.props.body}</p>
+			<div className="newsletter__container padded">
+				<p>{this.props.body}</p>
+				<div className="normal_bottom"><img src={this.props.image} /></div>
+			
 
 				{this.state.success &&
-				<p className="text_center highlight">{this.props.success}</p>
+				<p className="highlight">{this.props.success}</p>
 				||
-				<Form onSubmit={this.signup.bind(this)} className="grid grid--guttered grid--bottom">
+				<Form onSubmit={this.signup.bind(this)} className="grid grid--tight_guttered grid--bottom">
+					<div className="col col--12of12">
+						<p>{this.props.title}</p>
+					</div>
 					{this.state.error && 
 					<div className="col col--12of12"><div className="alert alert--error">{this.state.error}</div></div>
 					}
-					<div className="col col--9of12">
+					<div className="col col--12of12">
 						<Input type="hidden" name="shop" value={this.props.shop} />
-						<Input type="email" className="flat_bottom" name="email" label="Your Email Address" required />
+						<Input type="email" className="flat_bottom" name="email" placeholder="info@deluvio.com" required />
 					</div>
-					<div className="col col--3of12">
-						<button className="button--full button--white button--bordered" type="submit">{this.props.cta}</button>
+					<div className="col col--12of12">
+						<button className="button--full button--bordered" type="submit">{this.props.cta}</button>
 					</div>
 				</Form>
 				}

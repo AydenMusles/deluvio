@@ -49,6 +49,24 @@
 			max-width: none;
 		}
 	}
+
+	&.overlay--bottom_left {
+		bottom: $gutter;
+		left: $gutter/2;
+
+		width: 100%;
+		max-width: (320/$base) * 1rem;
+		height: auto;
+
+		overflow: visible;
+
+		@media #{$phone} {
+			top: $gutter*2;
+			bottom: auto;
+			left: 0;
+			max-width: none;
+		}
+	}
 }
 
 	.overlay__back,
@@ -108,7 +126,8 @@
 			right: 0;
 
 			padding: $gutter;
-			font-size: $medium_size;
+			font-size: $slight_size;
+			font-family: $alternate_font;
 		}
 
 		.overlay__alert {
