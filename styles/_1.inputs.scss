@@ -48,7 +48,7 @@ textarea,
 	color: inherit;
 	background: transparent;
 	padding: $vertical_rythm/2 $vertical_rythm $vertical_rythm/3;
-	border: 2px solid $grey--light;
+	border: 1px solid $grey--light;
 	border-radius: 0;
 
 	margin: 0 0 $vertical_rythm;
@@ -105,6 +105,28 @@ select,
 		// max-height: none;
 	}
 
+	&:after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    margin-top:-12px;
+    border-style: solid;
+    border-width: 4px 3px 0;
+    border-color: #313131 transparent transparent;
+    -webkit-transition: -webkit-transform .6s cubic-bezier(.19,1,.22,1);
+    transition: -webkit-transform .6s cubic-bezier(.19,1,.22,1);
+    transition: transform .6s cubic-bezier(.19,1,.22,1);
+    transition: transform .6s cubic-bezier(.19,1,.22,1),-webkit-transform .6s cubic-bezier(.19,1,.22,1);
+	}
+
+	&.select--focused:after {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 	input {
 		cursor: pointer;
 		font-size: $base_size;
@@ -118,7 +140,7 @@ select,
 		width: 100%;
 		
 		background: $white;
-		border: 2px solid $grey--light;
+		border: 1px solid $grey--light;
 		border-bottom: none;
 
 		display: none;

@@ -201,9 +201,11 @@ hr {
 	display: inline-block;
 	width: 100%;
 
-	border: 1px solid $grey--light;
+  border: 0;
+  border-top: 1px solid $grey--lighter;
+  border-bottom: 1px solid #fff;
 
-	margin: $vertical_rythm auto;
+	margin: $vertical_rythm*1.5 auto $vertical_rythm;
 }
 
 

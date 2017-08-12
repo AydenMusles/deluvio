@@ -2,9 +2,9 @@
 <footer class="footer padded padded--thick" data-section-id="{{ section.id }}" data-section-type="footer-section">
 	<div class="big_bottom">
 		<div class="grid grid--guttered">
-			<div class="col col--4of12 col--tablet_landscape--9of12 col--tablet_portrait--12of12">
+			<div class="col col--6of12 col--tablet_landscape--9of12 col--tablet_portrait--12of12">
 				<h5>About</h5>
-				<div class="slight">
+				<div class="slight padded-right">
 				{{section.settings.about}}
 				</div>
 			</div>
@@ -40,9 +40,9 @@
 			</div>
 			{% endfor %}
 		</div>
-		<small class="col col--tablet_portrait--12of12 grey">
+		<h5 class="col col--tablet_portrait--12of12 grey">
 			{{section.settings.copyright}}
-		</small>
+		</h5>
 	</div>
 </footer>
 
