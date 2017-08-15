@@ -17,3 +17,25 @@
 	font-weight: bold;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'HK Grotesk Pro';
+	src: url('HKGroteskPro-Regular.eot');
+	src: url('HKGroteskPro-Regular.eot"?#iefix') format('embedded-opentype'),
+		url('HKGroteskPro-Regular.woff2') format('woff2'),
+		url('HKGroteskPro-Regular.woff') format('woff'),
+		url('HKGroteskPro-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HK Grotesk Pro';
+	src: url('HKGroteskPro-Bold.eot');
+	src: url('HKGroteskPro-Bold.eot"?#iefix') format('embedded-opentype'),
+		url('HKGroteskPro-Bold.woff2') format('woff2'),
+		url('HKGroteskPro-Bold.woff') format('woff'),
+		url('HKGroteskPro-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
