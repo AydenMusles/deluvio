@@ -134,6 +134,8 @@ footer {
 .bordered { border: 1px solid $grey--light; }
 .border_left { border-left: 1px solid $grey--light; }
 .border_right { border-right: 1px solid $grey--light; @media #{$tablet_landscape} { border-right: none; } }
+.border_top { border-top: 1px solid $black; }
+.border_bottom { border-bottom: 1px solid $black; }
 
 .relative { position: relative; }
 .hide { display: none !important; }

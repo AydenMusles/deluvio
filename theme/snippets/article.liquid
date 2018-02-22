@@ -4,7 +4,12 @@
 {% include 'background', class: class, image: article.image %}
 
 <article class="article" data-section-id='{{section.id}}' data-section-type='article' data-article-id="{{article.id}}" id="{{article.handle}}">
-	<div class="hero hero--middle hero--medium dark_back hero--{{article.id}}">
+	<div class="padded padded--vertically_thick text_center">
+		<h4>{{article.excerpt | strip_html}}</h4>
+		<h1 class="h1--massive medium_bottom">{{article.title}}</h1>
+	</div>
+
+	{% comment %}<div class="hero hero--middle hero--medium dark_back hero--{{article.id}}">
 
 		<div class="hero__inner">
 			<div class="grid grid--center">
@@ -14,12 +19,30 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>{% endcomment %}
 
-	<div class="grid grid--center padded padded--thick">
-		<div class="col col--6of12 col--tablet_landscape--8of12 col--tablet_portrait--10of12 col--phone--12of12">
+	<div class="grid grid--center padded big_bottom">
+		<div class="col col--8of12 col--tablet_portrait--10of12 col--phone--12of12 article__content">
 			{{article.content}}
 		</div>
+	</div>
+
+	<div class="grid grid--center big_bottom">
+		{% if blog.next_article and blog.next_article != blog.previous_article %}
+		<a href="{{blog.next_article.url}}" class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 text_center padded padded--thick">
+			<h4>{{blog.next_article.excerpt|strip_html}}</h4>
+			<h2 class="h2--huge medium_bottom">{{blog.next_article.title}}</h2>
+			{% include 'picture', image: blog.next_article.image %}
+		</a>
+		{% endif %}
+
+		{% if blog.previous_article %}
+		<a href="{{blog.previous_article.url}}" class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 text_center padded padded--thick">
+			<h4>{{blog.previous_article.excerpt|strip_html}}</h4>
+			<h2 class="h2--huge medium_bottom">{{blog.previous_article.title}}</h2>
+			{% include 'picture', image: blog.previous_article.image %}
+		</a>
+		{% endif %}
 	</div>
 
 </article>

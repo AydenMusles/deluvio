@@ -1,6 +1,41 @@
 
-<section class="">
-	<div class="slider padded padded--underheader" data-slider>
+
+
+<section class="padded padded--underheader">
+	<div class="grid grid--center big_bottom">
+	{% for article in blog.articles %}
+		{% if forloop.index == 1 %}
+		<a href="{{article.url}}" class="col col--8of12 col--tablet_portrait--10of12 col--phone--12of12 text_center padded padded--vertically_thick">
+			<h4>{{article.excerpt|strip_html}}</h4>
+			<h1 class="h1--massive medium_bottom">{{article.title}}</h1>
+			{% include 'picture', image: article.image %}
+		</a>
+		{% elsif forloop.index == 2 or forloop.index == 3 %}
+		<a href="{{article.url}}" class="col col--6of12 col--tablet_portrait--10of12 col--phone--12of12 text_center padded padded--thick">
+			<h4>{{article.excerpt|strip_html}}</h4>
+			<h2 class="h2--huge medium_bottom">{{article.title}}</h2>
+			{% include 'picture', image: article.image %}
+		</a>
+		{% elsif forloop.index == 4 %}
+		<a href="{{article.url}}" class="col col--8of12 col--tablet_portrait--10of12 col--phone--12of12 text_center padded padded--vertically_thick">
+			<h4>{{article.excerpt|strip_html}}</h4>
+			<h2 class="h2--huge medium_bottom">{{article.title}}</h2>
+			{% include 'picture', image: article.image %}
+		</a>
+		{% else %}
+		<a href="{{article.url}}" class="col col--12of12 padded border_top{% if forloop.last %} border_bottom{% endif %}">
+			<div class="grid">
+				<div class="col"><h2>{{article.excerpt|strip_html}}</h2></div>
+				<div class="col col--1of12"></div>
+				<div class="col"><h2>{{article.title}}</h2></div>
+			</div>
+		</a>
+		{% endif %}
+		
+	{% endfor %}
+	</div>
+
+	{% comment %}<div class="slider padded padded--underheader" data-slider>
 		{% assign size = blog.articles|size %}
 		
 		<style>
@@ -33,5 +68,5 @@
 		<button class="slider__button slider__button--right" data-next-slide-button>
 			<svg class="icon icon--massive"><use xlink:href="#icon-right"></use></svg>
 		</button>
-	</div>
+	</div>{% endcomment %}
 </section>

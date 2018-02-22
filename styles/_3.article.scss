@@ -1,0 +1,16 @@
+
+
+// #ARTICLE
+
+.article {
+	
+}
+
+  .article__content {
+    column-count: 2;
+    column-gap: $gutter;
+
+    @media #{$tablet_portrait} {
+      column-count: 1;
+    }
+  }
