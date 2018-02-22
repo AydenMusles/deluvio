@@ -97,6 +97,10 @@ footer {
 		padding-top: 0;
 	}
 
+	&.padded--small_bottom {
+		padding-bottom: $gutter;
+	}
+
 	&.padded--flat_on_phone {
 
 		@media #{$phone} {

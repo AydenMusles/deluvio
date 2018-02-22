@@ -103,17 +103,14 @@ const Unsplash = {
 
 		const sliders = document.querySelectorAll("[data-slider]")
 		if (sliders.length > 0) {
+			const parser = new DOMParser()
 			for (var i = sliders.length - 1; i >= 0; i--) {
-				let slides = []
-				const slidesSelector = sliders[i].querySelectorAll("[data-slide]")
-				for (var j = 0; j < slidesSelector.length; j++) {
-					slides.push(JSON.parse(unescape(slidesSelector[j].getAttribute("data-slide"))))
-				}
+				const content = parser.parseFromString(sliders[i].getAttribute("data-slides"), "text/html")
 
 				ReactDOM.render(
 					<Slider 
 						autoplay={sliders[i].getAttribute("data-slider-autoplay")}
-						slides={slides} />, sliders[i]
+						slides={Array.from(content.getElementsByTagName("img"))} />, sliders[i]
 				)
 			}
 		}

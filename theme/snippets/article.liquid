@@ -4,26 +4,27 @@
 {% include 'background', class: class, image: article.image %}
 
 <article class="article" data-section-id='{{section.id}}' data-section-type='article' data-article-id="{{article.id}}" id="{{article.handle}}">
-	<div class="padded padded--vertically_thick text_center">
+
+	{% assign content_split = article.content | split: '<p class="p1"><span class="s1">~</span></p>' %}
+	{% assign content_split_size = content_split|size %}
+
+	<div class="padded padded--vertically_thick padded--small_bottom text_center">
 		<h4>{{article.excerpt | strip_html}}</h4>
-		<h1 class="h1--massive medium_bottom">{{article.title}}</h1>
+		<h1 class="h1--massive big_bottom">{{article.title}}</h1>
+
+		{% if content_split_size > 1 %}
+		<div class="slider" data-slider data-slides='{{content_split[0]}}'></div>
+		{% endif %}
 	</div>
-
-	{% comment %}<div class="hero hero--middle hero--medium dark_back hero--{{article.id}}">
-
-		<div class="hero__inner">
-			<div class="grid grid--center">
-				<div class="col col--6of12 col--tablet_landscape--8of12 col--tablet_portrait--10of12 col--phone--12of12 text_center">
-					<h1 class="medium_bottom">{{article.title}}</h1>
-					<div class="p--slight">{{article.excerpt}}</div>
-				</div>
-			</div>
-		</div>
-	</div>{% endcomment %}
+	
 
 	<div class="grid grid--center padded big_bottom">
 		<div class="col col--8of12 col--tablet_portrait--10of12 col--phone--12of12 article__content">
+			{% if content_split_size > 1 %}
+			{{content_split[1]}}
+			{% else %}
 			{{article.content}}
+			{% endif %}
 		</div>
 	</div>
 

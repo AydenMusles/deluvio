@@ -9,6 +9,16 @@ export class Slider extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		// if (this.props.autoplay) {
+		// 	this.resetAutoplay()
+		// }
+	}
+
+	componentWillUnmount() {
+		this.clearAutoplay()
+	}
+
 	slideTo(event, index) {
 		if (event) {
 			event.preventDefault()
@@ -19,31 +29,21 @@ export class Slider extends React.Component {
 			current: index
 		})
 
-		this.resetAutoplay()
+		// this.resetAutoplay()
 	}
 
-	componentDidMount() {
-		if (this.props.autoplay) {
-			this.resetAutoplay()
-		}
-	}
+	// resetAutoplay() {
+	// 	this.clearAutoplay()
+	// 	this.interval = window.setInterval(()=> {
+	// 		this.nextSlide()
+	// 	}, this.props.autoplay)
+	// }
 
-	componentWillUnmount() {
-		this.clearAutoplay()
-	}
-
-	resetAutoplay() {
-		this.clearAutoplay()
-		this.interval = window.setInterval(()=> {
-			this.nextSlide()
-		}, this.props.autoplay)
-	}
-
-	clearAutoplay() {
-		if (this.interval) {
-			window.clearInterval(this.interval)	
-		}
-	}
+	// clearAutoplay() {
+	// 	if (this.interval) {
+	// 		window.clearInterval(this.interval)	
+	// 	}
+	// }
 
 	nextSlide(event) {
 		if (this.state.current == this.props.slides.length - 1) {
@@ -68,31 +68,16 @@ export class Slider extends React.Component {
 		return <div>
 			<div className="slider__container big_bottom" ref={(div)=>{this.container = div}} style={{width: (this.props.slides.length * 100)+"%"}}>
 				{this.props.slides.map((slide, index)=> (
-				<div className="slide" key={index} style={{
+				<a onClick={this.nextSlide.bind(this)} className="slide" key={index} style={{
 						width: (100 / this.props.slides.length)+"%",
 						transform: `translateX(-${this.state.current}00%)`
 					}}>
-					<h2>
-						{slide.link &&
-						<a href={slide.link} target="_blank">{slide.body}</a>
-						||
-						<span>{slide.body}</span>
-						}
-					</h2>
-				</div>
+					<img src={slide.getAttribute("src")} alt={slide.getAttribute("alt")} />
+				</a>
 				))}
 			</div>
 
-			<div className="grid grid--guttered grid--middle grid--center">
-				{this.props.slides.map((slide, index)=> (
-				<div className="col" key={index}>
-					<a href={slide.link} target="_blank"
-						className="inline_block"
-						style={{opacity: this.state.current == index ? 1 : 0.2 }}
-						onClick={(event)=> {this.slideTo(event, index)}}><img src={slide.image} className="img--auto" /></a>
-				</div>
-				))}
-			</div>
+			<h4>{this.state.current + 1} of {this.props.slides.length}</h4>
 		</div>
 	}
 }
