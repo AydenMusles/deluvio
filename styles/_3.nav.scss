@@ -9,7 +9,7 @@
 	width: 100%;
 	z-index: 10;
 
-	padding: ($gutter/2 + ((1/$base) * 1rem)) $gutter;
+	padding: ($gutter/2 + ((1/$base) * 1rem)) $gutter ($gutter + ((1/$base)));
 	background-color: fade-out($white, 0.05);
 
 	@media #{$tablet_portrait} {
@@ -30,7 +30,7 @@
 		font-family: $alternate_font;
 		color: $grey;
 
-		padding: $vertical_rythm/2 $vertical_rythm;
+		margin: $vertical_rythm/2 $vertical_rythm;
 
 		& + & {
 			// margin-left: $vertical_rythm;

@@ -18,7 +18,7 @@
       <a href="/">
         {% assign name_split = shop.name|split:" " %}
         {% assign name_split_length = name_split|size|minus:1 %}
-        <h2 class="hide_on_tablet_landscape">{{shop.name}}</h2>
+        <h2 class="hide_on_tablet_landscape margin--none">{{shop.name}}</h2>
         <h2 class="tablet_landscape_only">{{name_split[name_split_length]}}</h2>
       </a>
     </div>
