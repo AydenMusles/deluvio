@@ -1,9 +1,9 @@
-# store.unsplash.com
-https://store.unsplash.com
+# deluvio.com
+https://deluvio.com
 
 ## Development 
 ### First Install
-1. Clone the repo (https://github.com/phillipmalboeuf/unsplash.git)
+1. Clone the repo
 2. In the terminal, run: ```cd /path/to/the/repo```
 3. And then: ```npm install```
 4. In the ```config``` folder, add an ```environment.json``` that contains these variables as json:
@@ -19,7 +19,7 @@ https://store.unsplash.com
 
 ### Run Locally
 1. In the terminal, run: ```grunt development```
-1.1. Chrome will open the development url (https://unsplash.destruct.codes)
+1.1. Chrome will open the development url
 2. In Chrome, make sure that https://localhost:8080/app.js and https://livereload:9000/livereload.js are recognized as safe to proceed by the browser.
 3. Refresh the browser
 4. Every changes made to ```.liquid``` files in the ```/theme``` folder will be uploaded and will trigger a browser refresh.
